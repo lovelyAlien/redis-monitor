@@ -74,3 +74,15 @@ scrape_configs:
     static_configs:
       - targets: ['redis-exporter:9121']
 ```
+
+## Redis 메트릭 수집
+<img width="1728" alt="image" src="https://github.com/user-attachments/assets/df92ebf6-b7c5-4f72-a5e8-10204831c843">
+
+## Redis Exporter 작동 방식
+1. Redis 연결:
+- Redis Exporter는 Redis 서버에 연결하여 INFO, CONFIG, CLIENT LIST 등의 명령어를 실행해 데이터를 가져옵니다.
+2. Prometheus에 메트릭 노출:
+- 수집된 데이터를 Prometheus가 이해할 수 있는 HTTP 엔드포인트(/metrics)에서 노출합니다.
+3. Prometheus가 메트릭 수집:
+- Prometheus는 주기적으로 Redis Exporter에서 메트릭을 가져와 저장하고, Grafana와 같은 도구로 시각화하거나 알림을 설정합니다.
+
